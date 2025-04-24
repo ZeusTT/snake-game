@@ -1,26 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    min-height: 100vh;
     background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    touch-action: manipulation;
 }
 
 .game-container {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    padding: 20px;
 }
 
-#gameCanvas {
-    border: 2px solid #333;
-    background-color: #fff;
-}
-
-.score {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    font-size: 24px;
+h1 {
+    margin-bottom: 20px;
     color: #333;
+}
+
+.score-container {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+canvas {
+    background-color: #fff;
+    border: 2px solid #333;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.horizontal-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+}
+
+button {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+#left, #right {
+    width: 60px;
+    height: 60px;
+}
+
+button:active {
+    background-color: #3e8e41;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#restart {
+    margin-top: 15px;
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .controls {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    #left, #right {
+        width: 50px;
+        height: 50px;
+    }
 }
